@@ -1,0 +1,18 @@
+FROM node:latest as build
+
+RUN npm install @angular/cli@latest -g
+
+WORKDIR /usr/local/app
+
+COPY package.json .
+
+COPY . .
+
+RUN npm install && npm run build
+
+#stage 2
+FROM nginx:latest
+
+COPY --from=build /usr/local/app/dist/*/ /usr/share/nginx/html
+
+EXPOSE 80

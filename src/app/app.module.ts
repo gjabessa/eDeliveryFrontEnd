@@ -13,6 +13,8 @@ import { DisplayComponent } from './layout/display/display.component';
 import { ItemsListComponent } from './sections/items-list/items-list.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SingleItemComponent } from './micro/single-item/single-item.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent } from './micro/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SingleItemComponent } from './micro/single-item/single-item.component';
     ItemsListComponent,
     FooterComponent,
     SingleItemComponent,
+    CheckoutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

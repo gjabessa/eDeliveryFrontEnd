@@ -3,8 +3,8 @@
         <div class="container pb-5">
     
           <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 rows-cols-xxl-6 g-3 ">
-            <div class="justify-content-center" *ngFor="let i of [0,1,2,3,4,5,6,7,8]">
-              <app-single-item></app-single-item>
+            <div class="justify-content-center" *ngFor="let item of items">
+              <app-single-item [item]="item"></app-single-item>
             </div>
            
             
