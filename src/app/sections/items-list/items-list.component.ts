@@ -15,8 +15,8 @@ export class ItemsListComponent implements OnInit {
     this.getItems();
   }
 
-  getItems(){
-    this.items = this.itemsService.getItems()
+  async getItems(){
+    this.items = await this.itemsService.getItems();
   }
   
 }

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ItemsService } from 'src/app/services/items.service';
+import { baseUrl } from 'src/environment';
 
 @Component({
   selector: 'app-single-item',
@@ -7,10 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SingleItemComponent implements OnInit {
   @Input() item:any = {};
-  constructor() { }
+  baseUrl: String = baseUrl;
+  constructor(private itemsService: ItemsService) { }
 
   
   ngOnInit(): void {
+    
   }
 
 }

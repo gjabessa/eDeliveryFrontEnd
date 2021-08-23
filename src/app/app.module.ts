@@ -15,6 +15,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SingleItemComponent } from './micro/single-item/single-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './micro/cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CartComponent } from './micro/cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

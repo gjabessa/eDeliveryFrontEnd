@@ -9,11 +9,8 @@
 }
 .box > .img-holder > img {
     max-width: 100%;
-    height: auto;
+    object-fit: contain;
     border-radius: 10px;
-
-    
-
 }
 .product-meta {
     transition: color 0.25s ease-in-out;
