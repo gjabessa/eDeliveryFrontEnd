@@ -1,0 +1,37 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+   # - name: Build the Docker image
+      #run: docker build . --file Dockerfile.production --tag front-end:$(date +%s)
+    - name: SSH Auto Deploy
+    # You may pin to the exact commit or the version.
+    # uses: hengkx/ssh-deploy@18d0dcacae71ee6694ddfabc3536b524414d7ad5
+      uses: hengkx/ssh-deploy@v1.0.1
+      with:
+        # remote host
+        HOST: ${{secrets.IPADDRESS}}
+        # username
+        USERNAME: ${{secrets.USERNAME}}
+        # password
+        PASSWORD: ${{secrets.PASS}}
+        # port
+        PORT: 22
+        # local path
+        SOURCE: .
+        # remote target
+        TARGET: /root/eDeliveryFrontEnd
+        # upload success execute command
+        AFTER_COMMAND: docker build /root/eDeliveryFrontEnd --file Dockerfile.production --tag front-end && docker run front-end -p 80:80
