@@ -34,4 +34,4 @@ jobs:
         # remote target
         TARGET: /root/eDeliveryFrontEnd
         # upload success execute command
-        AFTER_COMMAND: docker build /root/eDeliveryFrontEnd --file Dockerfile.production --tag front-end && docker run -p 80:80 front-end 
+        AFTER_COMMAND: docker build /root/eDeliveryFrontEnd --file Dockerfile.production --tag front-end && docker run -p 80:80 -d front-end 
