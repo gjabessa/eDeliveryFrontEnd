@@ -16,14 +16,20 @@ export class AuthenticationService {
 
     private setSession(authResult:any){
       localStorage.setItem("jwt",authResult.jwt);
+      localStorage.setItem("user",JSON.stringify(authResult.user))
     }
 
+    getUser(){
+      let user = localStorage.getItem("user");
+      return JSON.parse(user?user:'')
+    }
     private fail(){
       throw new Error('Invalid email or password')
     }
 
     logout(){
       localStorage.removeItem("jwt");
+      localStorage.removeItem("user")
     }
 
     public isLoggedIn(){
