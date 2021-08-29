@@ -8,14 +8,14 @@
            
                <div class="pb-2 pt-2" >
                   <a routerLink="/items/{{item.slug}}" >
-                    {{item.name}}
+                    {{item.title}}
                    </a>
                </div>
               <div class="pb-2">
                 <strong class="text-muted">${{ item.price }}</strong>
               </div>        
             
-              <button type="button" class="add-to-cart btn btn-sm btn-outline-secondary">Add to cart</button>
+              <button type="button" class="add-to-cart btn btn-sm btn-outline-secondary" (click)="addToCart(item)">Add to cart</button>
         
    
       </div>

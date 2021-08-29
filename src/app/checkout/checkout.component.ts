@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from '../services/cart.service';
+import { Item } from '../services/items.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private cartService: CartService) { }
+  cart!: BehaviorSubject<Item []>;
   ngOnInit(): void {
+    this.getCarts();
+  }
+  getCarts(){
+    this.cart = this.cartService.getCart();
   }
 
 }

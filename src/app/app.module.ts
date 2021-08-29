@@ -16,6 +16,9 @@ import { SingleItemComponent } from './micro/single-item/single-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './micro/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,11 +34,14 @@ import { HttpClientModule } from '@angular/common/http';
     SingleItemComponent,
     CheckoutComponent,
     CartComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

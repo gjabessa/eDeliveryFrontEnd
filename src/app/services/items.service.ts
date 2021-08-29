@@ -6,7 +6,7 @@ import { baseUrl } from 'src/environment';
 export interface Item{
   title: String,
   description: String,
-  price: Number,
+  price: number,
   slug: String,
   image: {
     formats:{

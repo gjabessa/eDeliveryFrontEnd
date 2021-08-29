@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ItemsService } from 'src/app/services/items.service';
+import { CartService } from 'src/app/services/cart.service';
+import { Item, ItemsService } from 'src/app/services/items.service';
 import { baseUrl } from 'src/environment';
 
 @Component({
@@ -10,11 +11,15 @@ import { baseUrl } from 'src/environment';
 export class SingleItemComponent implements OnInit {
   @Input() item:any = {};
   baseUrl: String = baseUrl;
-  constructor(private itemsService: ItemsService) { }
+  constructor(private cartService: CartService) { }
 
   
   ngOnInit(): void {
     
+  }
+
+  addToCart(item:Item){
+    this.cartService.addToCart(item)
   }
 
 }

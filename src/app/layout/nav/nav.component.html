@@ -11,25 +11,24 @@
           <button class="btn btn-primary" type="submit">Search</button>
         </form>
        
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
+        <div *ngIf="!isLoggedIn()" class="text-end">
+          <button type="button" routerLink="login" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning me-2">Sign-up</button>
         </div>
-        <div class="dropdown text-end me-4">
+        <div *ngIf="isLoggedIn()" class="dropdown text-end me-4">
             <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Orders</a></li>
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" (click)="signout()">Sign out</a></li>
             </ul>
             
           </div>
           
-          <a class="cart" routerLink="/checkout"><i class="bi bi-cart"></i><span class="badge bg-primary">10</span></a>
+          <a *ngIf="isLoggedIn()"  class="cart" routerLink="/checkout"><i class="bi bi-cart"></i><span class="badge bg-primary">{{cartAmount}}</span></a>
       </div>
     </div>
   </header>
