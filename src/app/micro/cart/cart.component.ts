@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart.subscribe(cart => {
       this.length = cart.length;
-      this.sum = cart.map(a => a.price).reduce((a,b)=>a+b)
+      this.sum = cart.length > 0? cart.map(a => a.price).reduce((a,b)=>a+b):0
     })
 
   }

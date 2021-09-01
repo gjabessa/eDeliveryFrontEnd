@@ -12,7 +12,7 @@
         </form>
        
         <div *ngIf="!isLoggedIn()" class="text-end">
-          <button type="button" routerLink="login" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" routerLink="/login" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning me-2">Sign-up</button>
         </div>
         <div *ngIf="isLoggedIn()" class="dropdown text-end me-4">
@@ -20,7 +20,7 @@
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">Orders</a></li>
+              <li><a class="dropdown-item" href="orders">Orders</a></li>
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" (click)="signout()">Sign out</a></li>
