@@ -45,6 +45,7 @@ input[type="number"] {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    width: 20px;
   }
   .number-input button:before,
   .number-input button:after {
@@ -61,7 +62,7 @@ input[type="number"] {
     text-align: center;
   }
  .number-input input[type=number] {
-    border: dashed #ddd 0.1px;
+    border: dashed #ddd 0px;
     outline: none;
   }
  

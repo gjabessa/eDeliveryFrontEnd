@@ -1,7 +1,6 @@
 
 <div class=" d-flex justify-content-center">
-    <div class=" box pb-5 text-center" >
-      a
+    <div class=" box pb-5" >
        <a routerLink="/items/{{item.slug}}"  class="d-flex justify-content-center img-holder ">
             <img src="{{baseUrl + item.image.formats.thumbnail.url}}"  class="bg-light">
     
@@ -13,14 +12,14 @@
                    </a>
                </div>
               <div class="pb-2">
-                <strong class="text-muted">${{ item.price }}</strong>
+                <strong class="text-muted">${{ item.price * quantity }}</strong>
               </div>        
             
-              <!-- <div class="number-input safari_only mb-0 w-100">
-                <button id="basic-example-decrease" >-</button>
-                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                <button id="basic-example-add">+</button>
-              </div> -->
+              <div class="number-input safari_only mb-0 w-100">
+                <button id="basic-example-decrease" (click)="decrement()">-</button>
+                <input class="quantity" min="0" name="quantity" value="{{quantity}}" type="number">
+                <button id="basic-example-add" (click)="increment()">+</button>
+              </div>
               <button type="button" class="add-to-cart btn btn-sm btn-outline-secondary" (click)="addToCart(item)">Add to cart</button>
               
       </div>

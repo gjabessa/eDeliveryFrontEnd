@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from './items.service';
 
+export interface Cart {
+  item: Item,
+  quantity:number
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -10,9 +14,9 @@ export class CartService {
   constructor() { 
     this.cart = new BehaviorSubject(this.getItems());
   }
-  cart!:BehaviorSubject<Item[]>;
-  addToCart(item:Item){
-    this.cart.next([...this.cart.getValue(),item]);
+  cart!:BehaviorSubject<Cart[]>;
+  addToCart(item:Item, quantity: number){
+    this.cart.next([...this.cart.getValue(),{item,quantity}]);
     localStorage.setItem("item", JSON.stringify(this.cart.getValue()))
   }
 
@@ -21,12 +25,12 @@ export class CartService {
     this.cart.next(this.cart.getValue())
     localStorage.setItem("item",JSON.stringify(this.cart.getValue()))
   }
-  getItems():Item[] {
+  getItems():Cart[] {
     let items = JSON.parse(String(localStorage.getItem("item"))) // cast to string because it sometimes might return null
     return items?items:[]
   }
 
-  getCart():BehaviorSubject<Item[]>{
+  getCart():BehaviorSubject<Cart[]>{
     return this.cart;
   }
 

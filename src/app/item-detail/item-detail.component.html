@@ -11,7 +11,16 @@
                 <strong >${{ item.price }}</strong>
             </div>
             <p> {{ item.description }}</p>
-            <button class="btn btn-primary col-12" type="button">Add to cart</button>
+            <div class="number-input safari_only mb-0 w-100">
+              <button id="basic-example-decrease" (click)="decrement();addedToCart=false;">-</button>
+              <input class="quantity" min="0" name="quantity" value="{{quantity}}" type="number">
+              <button id="basic-example-add" (click)="increment();addedToCart=false;">+</button>
+            </div>
+            <div class="alert alert-success mt-3" role="alert" *ngIf="addedToCart">
+              <i class="bi bi-check2"></i> Added to cart!
+            </div>
+            <button [disabled]="addedToCart" class="btn btn-primary col-12 mt-2" (click)="addToCart(item); addedToCart=true" type="button">Add to cart</button>
+           
           </div>
         </div>
       </div>

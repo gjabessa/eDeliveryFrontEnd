@@ -12,14 +12,23 @@ export class SingleItemComponent implements OnInit {
   @Input() item:any = {};
   baseUrl: String = baseUrl;
   constructor(private cartService: CartService) { }
-
+  quantity: number = 1;
   
   ngOnInit(): void {
     
   }
 
+  increment(){
+    this.quantity++;
+  }
+
+  decrement(){
+    if(this.quantity > 1){
+      this.quantity--;
+    }
+  }
   addToCart(item:Item){
-    this.cartService.addToCart(item)
+    this.cartService.addToCart(item,this.quantity)
   }
 
 }

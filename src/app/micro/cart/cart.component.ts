@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CartService } from 'src/app/services/cart.service';
+import { Cart, CartService } from 'src/app/services/cart.service';
 import { Item } from 'src/app/services/items.service';
 import { baseUrl } from 'src/environment';
 
@@ -12,14 +12,14 @@ import { baseUrl } from 'src/environment';
 export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
-  @Input() cart!:BehaviorSubject<Item[]>;
+  @Input() cart!:BehaviorSubject<Cart[]>;
   baseUrl: String = baseUrl;
-  length!:Number;
+  totalQty:number = 0;
   sum!: number;
   ngOnInit(): void {
     this.cart.subscribe(cart => {
-      this.length = cart.length;
-      this.sum = cart.length > 0? cart.map(a => a.price).reduce((a,b)=>a+b):0
+      this.totalQty = cart.length > 0? cart.map(a => a.quantity).reduce((a,b)=>a+b):0;
+      this.sum = cart.length > 0? cart.map(a => a.item.price*a.quantity).reduce((a,b)=>a+b):0
     })
 
   }

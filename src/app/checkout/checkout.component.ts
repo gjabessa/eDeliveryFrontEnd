@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
-import { CartService } from '../services/cart.service';
+import { Cart, CartService } from '../services/cart.service';
 import { CheckoutService } from '../services/checkout.service';
 import { Item } from '../services/items.service';
 
@@ -14,7 +14,7 @@ import { Item } from '../services/items.service';
 export class CheckoutComponent implements OnInit {
 
   constructor(private cartService: CartService, private authService: AuthenticationService, private checkoutService: CheckoutService) { }
-  cart!: BehaviorSubject<Item []>;
+  cart!: BehaviorSubject<Cart[]>;
   user!: any;
   checkoutForm = new FormGroup({
     address: new FormControl('',Validators.required)
