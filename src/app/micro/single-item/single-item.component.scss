@@ -25,4 +25,43 @@ a{
 
 .add-to-cart{
     width:100px;
+    margin-top:5px;
 }
+input[type="number"] {
+    -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+            appearance: textfield;
+            width:50px;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+  }
+ 
+  .number-input button {
+    -webkit-appearance: none;
+    // background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .number-input button:before,
+  .number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    transform: translate(-50%, -50%);
+  }
+  .number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .number-input input[type=number] {
+    text-align: center;
+  }
+ .number-input input[type=number] {
+    border: dashed #ddd 0.1px;
+    outline: none;
+  }
+ 
