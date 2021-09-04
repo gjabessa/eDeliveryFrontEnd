@@ -15,5 +15,5 @@ RUN npm install
 FROM nginx:latest
 
 COPY --from=build /usr/local/app/dist/eDeliveryFront/ /usr/share/nginx/html
-
+COPY --from=build /usr/local/app/default.conf /etc/nginx/conf.d/
 EXPOSE 80
