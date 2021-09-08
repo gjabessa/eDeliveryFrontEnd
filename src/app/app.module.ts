@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavMicroComponent } from './micro/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     OrdersComponent,
     WelcomeComponent,
     NavComponent,
+    NavMicroComponent,
     DisplayComponent,
     ItemsListComponent,
     FooterComponent,
