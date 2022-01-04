@@ -1,7 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Item } from './items.service';
-
+import {a} from './test' ;
 export interface Cart {
   item: Item,
   quantity:number
@@ -11,8 +12,12 @@ export interface Cart {
 })
 export class CartService {
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.cart = new BehaviorSubject(this.getItems());
+  }
+  
+  getJson(){
+    return of(a)
   }
   cart!:BehaviorSubject<Cart[]>;
   addToCart(item:Item, quantity: number){

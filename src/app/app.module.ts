@@ -20,6 +20,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavMicroComponent } from './micro/nav/nav.component';
+import { APipe } from './a.pipe';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,17 @@ import { NavMicroComponent } from './micro/nav/nav.component';
     CartComponent,
     LoginComponent,
     RegisterComponent,
+    APipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBvXJXzZAaCBuMlQ0PJSbo5pdyDwoQ4tUo',
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

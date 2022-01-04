@@ -18,6 +18,9 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItem();
+    this.cartService.getJson().subscribe(data => {
+      console.log(data)
+    })
   }
 
   async getItem(){
